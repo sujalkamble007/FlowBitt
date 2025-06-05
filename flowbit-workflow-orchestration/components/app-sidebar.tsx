@@ -23,8 +23,15 @@ interface AppSidebarProps {
   onManageFolders?: () => void // optional for now
 }
 
+interface Flow {
+  id: string // filename-based id
+  name: string
+  fileName: string
+  uuid: string | null
+}
+
 export function AppSidebar({ selectedWorkflowId, onWorkflowSelect, onManageFolders }: AppSidebarProps) {
-  const [flows, setFlows] = useState<{ id: string; name: string }[]>([])
+  const [flows, setFlows] = useState<Flow[]>([])
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
@@ -84,8 +91,8 @@ export function AppSidebar({ selectedWorkflowId, onWorkflowSelect, onManageFolde
                 flows.map((flow) => (
                   <SidebarMenuItem key={flow.id}>
                     <SidebarMenuButton
-                      onClick={() => onWorkflowSelect(flow.id)}
-                      isActive={selectedWorkflowId === flow.id}
+                      onClick={() => onWorkflowSelect(flow.uuid)}
+                      isActive={selectedWorkflowId === flow.uuid}
                       className="w-full justify-start"
                     >
                       <Workflow className="w-4 h-4" />

@@ -1,0 +1,42 @@
+[
+  {
+    "id": "c6227f0e-4221-475f-80c4-c812c5bf1c19",
+    "workflowId": "wf-6",
+    "engine": "n8n",
+    "schedule": "0 9 * * *",
+    "inputPayload": {
+      "email": "daily@example.com",
+      "subject": "Daily Report",
+      "content": "This is your daily report."
+    }
+  },
+  {
+    "id": "248c11c5-996e-4464-b7c3-7264d8719765",
+    "workflowId": "wf-1",
+    "engine": "langflow",
+    "schedule": "0 9 * * *",
+    "inputPayload": {
+      "email": "cron@example.com"
+    }
+  },
+  {
+    "id": "9c2b312c-6cca-4ecd-aa73-ebdb7b8ed8df",
+    "workflowId": "wf-1",
+    "engine": "langflow",
+    "schedule": "0 9 * * *",
+    "inputPayload": {
+      "email": "daily@example.com",
+      "subject": "Daily Report",
+      "content": "This is your daily report."
+    }
+  },
+  {
+    "id": "d34356e5-076f-4a9c-b553-9efc7673ea58",
+    "workflowId": "wf-1",
+    "engine": "langflow",
+    "schedule": "0 9 * * *",
+    "inputPayload": {
+      "email": "cron@example.com"
+    }
+  }
+]

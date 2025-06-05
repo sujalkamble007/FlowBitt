@@ -21,6 +21,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { ExecutionDetailsModal } from "@/components/execution-details-modal"
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
+import { WorkflowTriggerModal } from "./workflow-trigger-modal"
 
 interface Execution {
   id: string
@@ -35,10 +36,11 @@ interface Execution {
 }
 
 interface ExecutionsDashboardProps {
-  selectedFolder: string | null
+  selectedFolder?: string | null
+  selectedWorkflowId?: string | null
 }
 
-export function ExecutionsDashboard({ selectedFolder }: ExecutionsDashboardProps) {
+export function ExecutionsDashboard({ selectedFolder = null, selectedWorkflowId = null }: ExecutionsDashboardProps) {
   const [executions, setExecutions] = useState<Execution[]>([])
   const [loading, setLoading] = useState(true)
   const [refreshing, setRefreshing] = useState(false)
@@ -50,6 +52,8 @@ export function ExecutionsDashboard({ selectedFolder }: ExecutionsDashboardProps
   const [selectedExecution, setSelectedExecution] = useState<{ id: string; engine: string } | null>(null)
   const [detailsModalOpen, setDetailsModalOpen] = useState(false)
   const [isUsingMockData, setIsUsingMockData] = useState(false)
+  const [triggerModalOpen, setTriggerModalOpen] = useState(false)
+  const [triggerWorkflow, setTriggerWorkflow] = useState<{ id: string, engine: string } | null>(null)
 
   useEffect(() => {
     fetchExecutions()
@@ -119,6 +123,7 @@ export function ExecutionsDashboard({ selectedFolder }: ExecutionsDashboardProps
   }
 
   const filteredExecutions = executions.filter((execution) => {
+    if (selectedWorkflowId && execution.workflowId !== selectedWorkflowId) return false
     if (selectedFolder && execution.folderId !== selectedFolder) return false
     if (statusFilter !== "all" && execution.status !== statusFilter) return false
     if (engineFilter !== "all" && execution.engine !== engineFilter) return false
@@ -183,23 +188,10 @@ export function ExecutionsDashboard({ selectedFolder }: ExecutionsDashboardProps
     }
   }
 
-  const handleTriggerWorkflow = async (workflowId: string, engine: string) => {
-    try {
-      const response = await fetch("/api/trigger", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ workflowId, engine }),
-      })
-
-      if (response.ok) {
-        // Refresh executions after triggering
-        setTimeout(() => fetchExecutions(true), 2000)
-      }
-    } catch (error) {
-      console.error("Error triggering workflow:", error)
-    }
+  // When opening the trigger modal, pass the correct uuid as workflowId
+  const handleTriggerWorkflow = (workflowId: string, engine: string) => {
+    setTriggerWorkflow({ id: workflowId, engine })
+    setTriggerModalOpen(true)
   }
 
   const handleViewDetails = (executionId: string, engine: string) => {
@@ -485,6 +477,14 @@ export function ExecutionsDashboard({ selectedFolder }: ExecutionsDashboardProps
         executionId={selectedExecution?.id || null}
         engine={selectedExecution?.engine || null}
       />
+      {triggerWorkflow && (
+        <WorkflowTriggerModal
+          open={triggerModalOpen}
+          onOpenChange={setTriggerModalOpen}
+          workflowId={triggerWorkflow.id}
+          engine={triggerWorkflow.engine}
+        />
+      )}
     </div>
   )
 }

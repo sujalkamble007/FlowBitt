@@ -26,22 +26,21 @@ const initialFolders: Folder[] = [
 export function OrchestrationDashboard() {
   const [createWorkflowOpen, setCreateWorkflowOpen] = useState(false)
   const [folderManagementOpen, setFolderManagementOpen] = useState(false)
-  const [selectedFolder, setSelectedFolder] = useState<string | null>(null)
+  const [selectedWorkflowId, setSelectedWorkflowId] = useState<string | null>(null)
   const [folders, setFolders] = useState<Folder[]>(initialFolders)
 
   return (
     <SidebarProvider defaultOpen={true}>
       <div className="min-h-screen flex w-full bg-gray-50">
         <AppSidebar
-          selectedFolder={selectedFolder}
-          onFolderSelect={setSelectedFolder}
+          selectedWorkflowId={selectedWorkflowId}
+          onWorkflowSelect={setSelectedWorkflowId}
           onManageFolders={() => setFolderManagementOpen(true)}
-          folders={folders}
         />
         <div className="flex-1 flex flex-col">
           <DashboardHeader onCreateWorkflow={() => setCreateWorkflowOpen(true)} />
           <main className="flex-1 p-6">
-            <ExecutionsDashboard selectedFolder={selectedFolder} />
+            <ExecutionsDashboard selectedWorkflowId={selectedWorkflowId} />
           </main>
         </div>
       </div>
