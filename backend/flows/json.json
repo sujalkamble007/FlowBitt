@@ -10,7 +10,7 @@
         "data": {
           "sourceHandle": {
             "dataType": "TextInput",
-            "id": "TextInput-EnUG8",
+            "id": "TextInput-yS6gQ",
             "name": "text",
             "output_types": [
               "Message"
@@ -18,19 +18,19 @@
           },
           "targetHandle": {
             "fieldName": "message",
-            "id": "CustomComponent-EO3ja",
+            "id": "CustomComponent-rNpAj",
             "inputTypes": [
               "Message"
             ],
             "type": "str"
           }
         },
-        "id": "xy-edge__TextInput-EnUG8{œdataTypeœ:œTextInputœ,œidœ:œTextInput-EnUG8œ,œnameœ:œtextœ,œoutput_typesœ:[œMessageœ]}-CustomComponent-EO3ja{œfieldNameœ:œmessageœ,œidœ:œCustomComponent-EO3jaœ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
+        "id": "xy-edge__TextInput-yS6gQ{œdataTypeœ:œTextInputœ,œidœ:œTextInput-yS6gQœ,œnameœ:œtextœ,œoutput_typesœ:[œMessageœ]}-CustomComponent-rNpAj{œfieldNameœ:œmessageœ,œidœ:œCustomComponent-rNpAjœ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
         "selected": false,
-        "source": "TextInput-EnUG8",
-        "sourceHandle": "{œdataTypeœ:œTextInputœ,œidœ:œTextInput-EnUG8œ,œnameœ:œtextœ,œoutput_typesœ:[œMessageœ]}",
-        "target": "CustomComponent-EO3ja",
-        "targetHandle": "{œfieldNameœ:œmessageœ,œidœ:œCustomComponent-EO3jaœ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}"
+        "source": "TextInput-yS6gQ",
+        "sourceHandle": "{œdataTypeœ:œTextInputœ,œidœ:œTextInput-yS6gQœ,œnameœ:œtextœ,œoutput_typesœ:[œMessageœ]}",
+        "target": "CustomComponent-rNpAj",
+        "targetHandle": "{œfieldNameœ:œmessageœ,œidœ:œCustomComponent-rNpAjœ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}"
       },
       {
         "animated": false,
@@ -38,7 +38,7 @@
         "data": {
           "sourceHandle": {
             "dataType": "JSONAgent",
-            "id": "CustomComponent-EO3ja",
+            "id": "CustomComponent-rNpAj",
             "name": "text",
             "output_types": [
               "Message"
@@ -46,130 +46,25 @@
           },
           "targetHandle": {
             "fieldName": "message",
-            "id": "TextOutput-amp12",
+            "id": "TextOutput-7U3SS",
             "inputTypes": [
               "Message"
             ],
             "type": "str"
           }
         },
-        "id": "xy-edge__CustomComponent-EO3ja{œdataTypeœ:œJSONAgentœ,œidœ:œCustomComponent-EO3jaœ,œnameœ:œtextœ,œoutput_typesœ:[œMessageœ]}-TextOutput-amp12{œfieldNameœ:œmessageœ,œidœ:œTextOutput-amp12œ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
+        "id": "xy-edge__CustomComponent-rNpAj{œdataTypeœ:œJSONAgentœ,œidœ:œCustomComponent-rNpAjœ,œnameœ:œtextœ,œoutput_typesœ:[œMessageœ]}-TextOutput-7U3SS{œfieldNameœ:œmessageœ,œidœ:œTextOutput-7U3SSœ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
         "selected": false,
-        "source": "CustomComponent-EO3ja",
-        "sourceHandle": "{œdataTypeœ:œJSONAgentœ,œidœ:œCustomComponent-EO3jaœ,œnameœ:œtextœ,œoutput_typesœ:[œMessageœ]}",
-        "target": "TextOutput-amp12",
-        "targetHandle": "{œfieldNameœ:œmessageœ,œidœ:œTextOutput-amp12œ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}"
+        "source": "CustomComponent-rNpAj",
+        "sourceHandle": "{œdataTypeœ:œJSONAgentœ,œidœ:œCustomComponent-rNpAjœ,œnameœ:œtextœ,œoutput_typesœ:[œMessageœ]}",
+        "target": "TextOutput-7U3SS",
+        "targetHandle": "{œfieldNameœ:œmessageœ,œidœ:œTextOutput-7U3SSœ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}"
       }
     ],
     "nodes": [
       {
         "data": {
-          "id": "CustomComponent-EO3ja",
-          "node": {
-            "base_classes": [
-              "Message"
-            ],
-            "beta": false,
-            "conditional_paths": [],
-            "custom_fields": {},
-            "description": "Parses JSON input and extracts fields like name, email, and intent.",
-            "display_name": "JSON Agent",
-            "documentation": "",
-            "edited": true,
-            "field_order": [
-              "message"
-            ],
-            "frozen": false,
-            "icon": "file-text",
-            "legacy": false,
-            "lf_version": "1.4.2",
-            "metadata": {},
-            "minimized": false,
-            "output_types": [],
-            "outputs": [
-              {
-                "allows_loop": false,
-                "cache": true,
-                "display_name": "Parsed Output",
-                "hidden": false,
-                "method": "parse_json",
-                "name": "text",
-                "options": null,
-                "required_inputs": null,
-                "selected": "Message",
-                "tool_mode": true,
-                "types": [
-                  "Message"
-                ],
-                "value": "__UNDEFINED__"
-              }
-            ],
-            "pinned": false,
-            "template": {
-              "_type": "Component",
-              "code": {
-                "advanced": true,
-                "dynamic": true,
-                "fileTypes": [],
-                "file_path": "",
-                "info": "",
-                "list": false,
-                "load_from_db": false,
-                "multiline": true,
-                "name": "code",
-                "password": false,
-                "placeholder": "",
-                "required": true,
-                "show": true,
-                "title_case": false,
-                "type": "code",
-                "value": "import json\nfrom langflow.custom import Component\nfrom langflow.io import MessageInput, Output\nfrom langflow.schema.message import Message\n\n\nclass JSONAgentComponent(Component):\n    display_name = \"JSON Agent\"\n    description = \"Parses JSON input and extracts fields like name, email, and intent.\"\n    icon = \"file-text\"\n    name = \"JSONAgent\"\n\n    inputs = [\n        MessageInput(\n            name=\"message\",\n            display_name=\"Message\",\n            info=\"Raw JSON input passed as a message.\",\n        ),\n    ]\n\n    outputs = [\n        Output(display_name=\"Parsed Output\", name=\"text\", method=\"parse_json\"),\n    ]\n\n    def parse_json(self) -> Message:\n        try:\n            parsed = json.loads(self.message.text)\n            name = parsed.get(\"name\", \"N/A\")\n            email = parsed.get(\"email\", \"N/A\")\n            intent = parsed.get(\"intent\", \"N/A\")\n\n            result = f\"Extracted Fields:\\nName: {name}\\nEmail: {email}\\nIntent: {intent}\"\n        except Exception as e:\n            result = f\"❌ Error parsing JSON: {str(e)}\"\n\n        return Message(text=result)\n"
-              },
-              "message": {
-                "_input_type": "MessageInput",
-                "advanced": false,
-                "display_name": "Message",
-                "dynamic": false,
-                "info": "Raw JSON input passed as a message.",
-                "input_types": [
-                  "Message"
-                ],
-                "list": false,
-                "list_add_label": "Add More",
-                "load_from_db": false,
-                "name": "message",
-                "placeholder": "",
-                "required": false,
-                "show": true,
-                "title_case": false,
-                "tool_mode": false,
-                "trace_as_input": true,
-                "trace_as_metadata": true,
-                "type": "str",
-                "value": ""
-              }
-            },
-            "tool_mode": false
-          },
-          "showNode": true,
-          "type": "JSONAgent"
-        },
-        "dragging": false,
-        "id": "CustomComponent-EO3ja",
-        "measured": {
-          "height": 250,
-          "width": 320
-        },
-        "position": {
-          "x": 610.3244202041674,
-          "y": 369.64001005152886
-        },
-        "selected": false,
-        "type": "genericNode"
-      },
-      {
-        "data": {
-          "id": "TextInput-EnUG8",
+          "id": "TextInput-yS6gQ",
           "node": {
             "base_classes": [
               "Message"
@@ -228,7 +123,7 @@
                 "show": true,
                 "title_case": false,
                 "type": "code",
-                "value": "from langflow.base.io.text import TextComponent\nfrom langflow.io import MultilineInput, Output\nfrom langflow.schema.message import Message\n\n\nclass TextInputComponent(TextComponent):\n    display_name = \"Text Input\"\n    description = \"Get text inputs from the Playground.\"\n    icon = \"type\"\n    name = \"TextInput\"\n\n    inputs = [\n        MultilineInput(\n            name=\"input_value\",\n            display_name=\"Text\",\n            info=\"Text to be passed as input (e.g., JSON).\",\n        ),\n    ]\n    outputs = [\n        Output(display_name=\"Message\", name=\"text\", method=\"text_response\"),\n    ]\n\n    def text_response(self) -> Message:\n        return Message(\n            text=self.input_value,\n        )\n"
+                "value": "# text_input_component.py\nfrom langflow.base.io.text import TextComponent\nfrom langflow.io import MultilineInput, Output\nfrom langflow.schema.message import Message\n\n\nclass TextInputComponent(TextComponent):\n    display_name = \"Text Input\"\n    description = \"Get text inputs from the Playground.\"\n    icon = \"type\"\n    name = \"TextInput\"\n\n    inputs = [\n        MultilineInput(\n            name=\"input_value\",\n            display_name=\"Text\",\n            info=\"Text to be passed as input.\",\n        ),\n    ]\n    outputs = [\n        Output(display_name=\"Message\", name=\"text\", method=\"text_response\"),\n    ]\n\n    def text_response(self) -> Message:\n        return Message(text=self.input_value)\n"
               },
               "input_value": {
                 "_input_type": "MultilineInput",
@@ -236,7 +131,7 @@
                 "copy_field": false,
                 "display_name": "Text",
                 "dynamic": false,
-                "info": "Text to be passed as input (e.g., JSON).",
+                "info": "Text to be passed as input.",
                 "input_types": [
                   "Message"
                 ],
@@ -253,7 +148,7 @@
                 "trace_as_input": true,
                 "trace_as_metadata": true,
                 "type": "str",
-                "value": "{   \"name\": \"Sujal Kamble\",   \"email\": \"sujal@example.com\",   \"intent\": \"Invoice Request\" }"
+                "value": "{   \"name\": \"Sujal Kamble\",   \"intent\": \"Invoice Request\" }"
               }
             },
             "tool_mode": false
@@ -262,21 +157,21 @@
           "type": "TextInput"
         },
         "dragging": false,
-        "id": "TextInput-EnUG8",
+        "id": "TextInput-yS6gQ",
         "measured": {
           "height": 230,
           "width": 320
         },
         "position": {
-          "x": 167.34425258673997,
-          "y": 172.0354942517947
+          "x": 953.1319926426149,
+          "y": 93.23235600481641
         },
         "selected": false,
         "type": "genericNode"
       },
       {
         "data": {
-          "id": "TextOutput-amp12",
+          "id": "TextOutput-7U3SS",
           "node": {
             "base_classes": [
               "Message"
@@ -335,7 +230,7 @@
                 "show": true,
                 "title_case": false,
                 "type": "code",
-                "value": "from langflow.base.io.text import TextComponent\nfrom langflow.io import MessageInput, Output\nfrom langflow.schema.message import Message\n\n\nclass TextOutputComponent(TextComponent):\n    display_name = \"Text Output\"\n    description = \"Display a text output in the Playground.\"\n    icon = \"type\"\n    name = \"TextOutput\"\n\n    inputs = [\n        MessageInput(\n            name=\"message\",\n            display_name=\"Message\",\n            info=\"The message to display as output.\",\n        ),\n    ]\n    outputs = [\n        Output(display_name=\"Echo\", name=\"text\", method=\"text_response\"),\n    ]\n\n    def text_response(self) -> Message:\n        self.status = self.message.text\n        return self.message\n"
+                "value": "# text_output_component.py\nfrom langflow.base.io.text import TextComponent\nfrom langflow.io import MessageInput, Output\nfrom langflow.schema.message import Message\n\n\nclass TextOutputComponent(TextComponent):\n    display_name = \"Text Output\"\n    description = \"Display a text output in the Playground.\"\n    icon = \"type\"\n    name = \"TextOutput\"\n\n    inputs = [\n        MessageInput(\n            name=\"message\",\n            display_name=\"Message\",\n            info=\"The message to display as output.\",\n        ),\n    ]\n    outputs = [\n        Output(display_name=\"Echo\", name=\"text\", method=\"text_response\"),\n    ]\n\n    def text_response(self) -> Message:\n        self.status = self.message.text\n        return self.message\n"
               },
               "message": {
                 "_input_type": "MessageInput",
@@ -367,39 +262,147 @@
           "type": "TextOutput"
         },
         "dragging": false,
-        "id": "TextOutput-amp12",
+        "id": "TextOutput-7U3SS",
         "measured": {
           "height": 230,
           "width": 320
         },
         "position": {
-          "x": 1061.607608545841,
-          "y": 540.4226960174888
+          "x": 1907.2995394052498,
+          "y": 403.2939825111664
         },
         "selected": true,
+        "type": "genericNode"
+      },
+      {
+        "data": {
+          "id": "CustomComponent-rNpAj",
+          "node": {
+            "base_classes": [
+              "Message"
+            ],
+            "beta": false,
+            "conditional_paths": [],
+            "custom_fields": {},
+            "description": "Extracts fields from JSON input.",
+            "display_name": "JSON Agent",
+            "documentation": "",
+            "edited": true,
+            "field_order": [
+              "message"
+            ],
+            "frozen": false,
+            "icon": "braces",
+            "legacy": false,
+            "lf_version": "1.4.2",
+            "metadata": {},
+            "minimized": false,
+            "output_types": [],
+            "outputs": [
+              {
+                "allows_loop": false,
+                "cache": true,
+                "display_name": "Processed",
+                "hidden": false,
+                "method": "process_json",
+                "name": "text",
+                "options": null,
+                "required_inputs": null,
+                "selected": "Message",
+                "tool_mode": true,
+                "types": [
+                  "Message"
+                ],
+                "value": "__UNDEFINED__"
+              }
+            ],
+            "pinned": false,
+            "template": {
+              "_type": "Component",
+              "code": {
+                "advanced": true,
+                "dynamic": true,
+                "fileTypes": [],
+                "file_path": "",
+                "info": "",
+                "list": false,
+                "load_from_db": false,
+                "multiline": true,
+                "name": "code",
+                "password": false,
+                "placeholder": "",
+                "required": true,
+                "show": true,
+                "title_case": false,
+                "type": "code",
+                "value": "# json_agent_component.py\nfrom langflow.custom import Component\nfrom langflow.io import MessageInput, Output\nfrom langflow.schema.message import Message\nimport json\n\n\nclass JSONAgentComponent(Component):\n    display_name = \"JSON Agent\"\n    description = \"Extracts fields from JSON input.\"\n    icon = \"braces\"\n    name = \"JSONAgent\"\n\n    inputs = [\n        MessageInput(name=\"message\", display_name=\"JSON Message\"),\n    ]\n\n    outputs = [\n        Output(display_name=\"Processed\", name=\"text\", method=\"process_json\"),\n    ]\n\n    def process_json(self) -> Message:\n        try:\n            data = json.loads(self.message.text)\n            name = data.get(\"name\", \"Unknown\")\n            intent = data.get(\"intent\", \"Unknown\")\n            output = f\"Name: {name}\\nIntent: {intent}\"\n        except json.JSONDecodeError:\n            output = \"Invalid JSON\"\n\n        return Message(text=output)\n"
+              },
+              "message": {
+                "_input_type": "MessageInput",
+                "advanced": false,
+                "display_name": "JSON Message",
+                "dynamic": false,
+                "info": "",
+                "input_types": [
+                  "Message"
+                ],
+                "list": false,
+                "list_add_label": "Add More",
+                "load_from_db": false,
+                "name": "message",
+                "placeholder": "",
+                "required": false,
+                "show": true,
+                "title_case": false,
+                "tool_mode": false,
+                "trace_as_input": true,
+                "trace_as_metadata": true,
+                "type": "str",
+                "value": ""
+              }
+            },
+            "tool_mode": false
+          },
+          "showNode": true,
+          "type": "JSONAgent"
+        },
+        "dragging": false,
+        "id": "CustomComponent-rNpAj",
+        "measured": {
+          "height": 230,
+          "width": 320
+        },
+        "position": {
+          "x": 1391.6721936681706,
+          "y": 303.93721821631397
+        },
+        "selected": false,
         "type": "genericNode"
       }
     ],
     "viewport": {
-      "x": 70.6032514633498,
-      "y": -22.822339876010517,
-      "zoom": 0.7302099495060433
+      "x": -738.9333072702284,
+      "y": 63.936056163812225,
+      "zoom": 0.8287764059625063
     }
   },
-  "description": "Nurture NLP Nodes Here.",
+  "description": "A simple but powerful starter agent.",
   "endpoint_name": null,
-  "folder_id": "bd59e02c-bba8-4f33-9114-adb9f6a434bf",
+  "folder_id": "38079b87-db1f-40f7-b4e7-b3b33b8182a4",
   "fs_path": null,
   "gradient": null,
   "icon": null,
   "icon_bg_color": null,
-  "id": "8bb40ec8-2f60-4e07-8675-55d30b46edf9",
+  "id": "b921a86b-f492-4d05-81fb-e0c1d9b8a045",
   "is_component": false,
   "locked": false,
   "mcp_enabled": true,
   "name": "json",
-  "tags": [],
-  "updated_at": "2025-06-04T21:29:12+00:00",
-  "user_id": "706beac6-a045-4257-ba6a-b1eada7d70c6",
+  "tags": [
+    "assistants",
+    "agents"
+  ],
+  "updated_at": "2025-06-05T20:16:48+00:00",
+  "user_id": "bd8a4e20-b5d7-4fa2-ae7e-3d82914f2c7c",
   "webhook": false
 }

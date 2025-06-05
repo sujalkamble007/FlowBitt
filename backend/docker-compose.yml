@@ -2,16 +2,20 @@ version: "3.8"
 services:
   redis:
     image: redis:7
+    container_name: flowbit-redis
     ports:
       - "6379:6379"
+    restart: unless-stopped
   langflow:
     image: langflowai/langflow:latest
+    container_name: flowbit-langflow
     ports:
       - "7860:7860"
     environment:
       - LANGFLOW_DEFAULT_FLOWS_PATH=/app/flows
-      - LANGFLOW_REDIS_URL=redis://redis:6379/0
+      - LANGFLOW_REDIS_URL=redis://flowbit-redis:6379/0
     volumes:
       - ./flows:/app/flows
     depends_on:
       - redis
+    restart: unless-stopped
