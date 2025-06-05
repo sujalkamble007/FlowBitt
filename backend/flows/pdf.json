@@ -1,0 +1,408 @@
+{
+  "access_type": "PRIVATE",
+  "action_description": null,
+  "action_name": null,
+  "data": {
+    "edges": [
+      {
+        "animated": false,
+        "className": "",
+        "data": {
+          "sourceHandle": {
+            "dataType": "PDFInput",
+            "id": "TextInput-WZPcc",
+            "name": "text",
+            "output_types": [
+              "Message"
+            ]
+          },
+          "targetHandle": {
+            "fieldName": "message",
+            "id": "CustomComponent-ceeIN",
+            "inputTypes": [
+              "Message"
+            ],
+            "type": "str"
+          }
+        },
+        "id": "xy-edge__TextInput-WZPcc{œdataTypeœ:œPDFInputœ,œidœ:œTextInput-WZPccœ,œnameœ:œtextœ,œoutput_typesœ:[œMessageœ]}-CustomComponent-ceeIN{œfieldNameœ:œmessageœ,œidœ:œCustomComponent-ceeINœ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
+        "selected": false,
+        "source": "TextInput-WZPcc",
+        "sourceHandle": "{œdataTypeœ:œPDFInputœ,œidœ:œTextInput-WZPccœ,œnameœ:œtextœ,œoutput_typesœ:[œMessageœ]}",
+        "target": "CustomComponent-ceeIN",
+        "targetHandle": "{œfieldNameœ:œmessageœ,œidœ:œCustomComponent-ceeINœ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}"
+      },
+      {
+        "animated": false,
+        "className": "",
+        "data": {
+          "sourceHandle": {
+            "dataType": "PDFAgent",
+            "id": "CustomComponent-ceeIN",
+            "name": "text",
+            "output_types": [
+              "Message"
+            ]
+          },
+          "targetHandle": {
+            "fieldName": "message",
+            "id": "TextOutput-6XApy",
+            "inputTypes": [
+              "Message"
+            ],
+            "type": "str"
+          }
+        },
+        "id": "xy-edge__CustomComponent-ceeIN{œdataTypeœ:œPDFAgentœ,œidœ:œCustomComponent-ceeINœ,œnameœ:œtextœ,œoutput_typesœ:[œMessageœ]}-TextOutput-6XApy{œfieldNameœ:œmessageœ,œidœ:œTextOutput-6XApyœ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
+        "selected": false,
+        "source": "CustomComponent-ceeIN",
+        "sourceHandle": "{œdataTypeœ:œPDFAgentœ,œidœ:œCustomComponent-ceeINœ,œnameœ:œtextœ,œoutput_typesœ:[œMessageœ]}",
+        "target": "TextOutput-6XApy",
+        "targetHandle": "{œfieldNameœ:œmessageœ,œidœ:œTextOutput-6XApyœ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}"
+      }
+    ],
+    "nodes": [
+      {
+        "data": {
+          "id": "TextInput-WZPcc",
+          "node": {
+            "base_classes": [
+              "Message"
+            ],
+            "beta": false,
+            "conditional_paths": [],
+            "custom_fields": {},
+            "description": "Paste the extracted text from a PDF.",
+            "display_name": "PDF Input",
+            "documentation": "",
+            "edited": true,
+            "field_order": [
+              "input_value"
+            ],
+            "frozen": false,
+            "icon": "file-text",
+            "legacy": false,
+            "lf_version": "1.4.2",
+            "metadata": {},
+            "minimized": false,
+            "output_types": [],
+            "outputs": [
+              {
+                "allows_loop": false,
+                "cache": true,
+                "display_name": "Message",
+                "hidden": false,
+                "method": "text_response",
+                "name": "text",
+                "options": null,
+                "required_inputs": null,
+                "selected": "Message",
+                "tool_mode": true,
+                "types": [
+                  "Message"
+                ],
+                "value": "__UNDEFINED__"
+              }
+            ],
+            "pinned": false,
+            "template": {
+              "_type": "Component",
+              "code": {
+                "advanced": true,
+                "dynamic": true,
+                "fileTypes": [],
+                "file_path": "",
+                "info": "",
+                "list": false,
+                "load_from_db": false,
+                "multiline": true,
+                "name": "code",
+                "password": false,
+                "placeholder": "",
+                "required": true,
+                "show": true,
+                "title_case": false,
+                "type": "code",
+                "value": "from langflow.base.io.text import TextComponent\nfrom langflow.io import MultilineInput, Output\nfrom langflow.schema.message import Message\n\n\nclass PDFInputComponent(TextComponent):\n    display_name = \"PDF Input\"\n    description = \"Paste the extracted text from a PDF.\"\n    icon = \"file-text\"\n    name = \"PDFInput\"\n\n    inputs = [\n        MultilineInput(\n            name=\"input_value\",\n            display_name=\"PDF Text\",\n            info=\"Paste PDF-extracted content as text.\",\n        ),\n    ]\n    outputs = [\n        Output(display_name=\"Message\", name=\"text\", method=\"text_response\"),\n    ]\n\n    def text_response(self) -> Message:\n        return Message(\n            text=self.input_value,\n        )\n"
+              },
+              "input_value": {
+                "_input_type": "MultilineInput",
+                "advanced": false,
+                "copy_field": false,
+                "display_name": "PDF Text",
+                "dynamic": false,
+                "info": "Paste PDF-extracted content as text.",
+                "input_types": [
+                  "Message"
+                ],
+                "list": false,
+                "list_add_label": "Add More",
+                "load_from_db": false,
+                "multiline": true,
+                "name": "input_value",
+                "placeholder": "",
+                "required": false,
+                "show": true,
+                "title_case": false,
+                "tool_mode": false,
+                "trace_as_input": true,
+                "trace_as_metadata": true,
+                "type": "str",
+                "value": "Invoice Number: INV-09283 Date: 2024-12-01 Total Amount: ₹5,700 Customer: Sujal Kamble"
+              }
+            },
+            "tool_mode": false
+          },
+          "showNode": true,
+          "type": "PDFInput"
+        },
+        "dragging": false,
+        "id": "TextInput-WZPcc",
+        "measured": {
+          "height": 230,
+          "width": 320
+        },
+        "position": {
+          "x": 946.2798020015905,
+          "y": 62.39749812020695
+        },
+        "selected": false,
+        "type": "genericNode"
+      },
+      {
+        "data": {
+          "id": "CustomComponent-ceeIN",
+          "node": {
+            "base_classes": [
+              "Message"
+            ],
+            "beta": false,
+            "conditional_paths": [],
+            "custom_fields": {},
+            "description": "Parses PDF-extracted text and tries to identify useful fields.",
+            "display_name": "PDF Agent",
+            "documentation": "",
+            "edited": true,
+            "field_order": [
+              "message"
+            ],
+            "frozen": false,
+            "icon": "file-text",
+            "legacy": false,
+            "lf_version": "1.4.2",
+            "metadata": {},
+            "minimized": false,
+            "output_types": [],
+            "outputs": [
+              {
+                "allows_loop": false,
+                "cache": true,
+                "display_name": "Parsed Output",
+                "hidden": false,
+                "method": "parse_pdf",
+                "name": "text",
+                "options": null,
+                "required_inputs": null,
+                "selected": "Message",
+                "tool_mode": true,
+                "types": [
+                  "Message"
+                ],
+                "value": "__UNDEFINED__"
+              }
+            ],
+            "pinned": false,
+            "template": {
+              "_type": "Component",
+              "code": {
+                "advanced": true,
+                "dynamic": true,
+                "fileTypes": [],
+                "file_path": "",
+                "info": "",
+                "list": false,
+                "load_from_db": false,
+                "multiline": true,
+                "name": "code",
+                "password": false,
+                "placeholder": "",
+                "required": true,
+                "show": true,
+                "title_case": false,
+                "type": "code",
+                "value": "from langflow.custom import Component\nfrom langflow.io import MessageInput, Output\nfrom langflow.schema.message import Message\n\n\nclass PDFAgentComponent(Component):\n    display_name = \"PDF Agent\"\n    description = \"Parses PDF-extracted text and tries to identify useful fields.\"\n    icon = \"file-text\"\n    name = \"PDFAgent\"\n\n    inputs = [\n        MessageInput(\n            name=\"message\",\n            display_name=\"PDF Message\",\n            info=\"Text extracted from PDF input.\",\n        ),\n    ]\n\n    outputs = [\n        Output(display_name=\"Parsed Output\", name=\"text\", method=\"parse_pdf\"),\n    ]\n\n    def parse_pdf(self) -> Message:\n        text = self.message.text\n        # Simulate basic field extraction\n        lines = text.strip().splitlines()\n        extracted = []\n\n        for line in lines:\n            if \"invoice\" in line.lower():\n                extracted.append(\"🧾 Invoice Info: \" + line.strip())\n            elif \"date\" in line.lower():\n                extracted.append(\"📅 Date Found: \" + line.strip())\n            elif \"total\" in line.lower():\n                extracted.append(\"💰 Amount: \" + line.strip())\n\n        result = \"\\n\".join(extracted) if extracted else \"No relevant invoice fields found.\"\n\n        return Message(text=result)\n"
+              },
+              "message": {
+                "_input_type": "MessageInput",
+                "advanced": false,
+                "display_name": "PDF Message",
+                "dynamic": false,
+                "info": "Text extracted from PDF input.",
+                "input_types": [
+                  "Message"
+                ],
+                "list": false,
+                "list_add_label": "Add More",
+                "load_from_db": false,
+                "name": "message",
+                "placeholder": "",
+                "required": false,
+                "show": true,
+                "title_case": false,
+                "tool_mode": false,
+                "trace_as_input": true,
+                "trace_as_metadata": true,
+                "type": "str",
+                "value": ""
+              }
+            },
+            "tool_mode": false
+          },
+          "showNode": true,
+          "type": "PDFAgent"
+        },
+        "dragging": false,
+        "id": "CustomComponent-ceeIN",
+        "measured": {
+          "height": 250,
+          "width": 320
+        },
+        "position": {
+          "x": 1501.3072439245595,
+          "y": 410.1461731521907
+        },
+        "selected": false,
+        "type": "genericNode"
+      },
+      {
+        "data": {
+          "id": "TextOutput-6XApy",
+          "node": {
+            "base_classes": [
+              "Message"
+            ],
+            "beta": false,
+            "conditional_paths": [],
+            "custom_fields": {},
+            "description": "Display a text output in the Playground.",
+            "display_name": "Text Output",
+            "documentation": "",
+            "edited": true,
+            "field_order": [
+              "message"
+            ],
+            "frozen": false,
+            "icon": "type",
+            "legacy": false,
+            "lf_version": "1.4.2",
+            "metadata": {},
+            "minimized": false,
+            "output_types": [],
+            "outputs": [
+              {
+                "allows_loop": false,
+                "cache": true,
+                "display_name": "Echo",
+                "hidden": null,
+                "method": "text_response",
+                "name": "text",
+                "options": null,
+                "required_inputs": null,
+                "selected": "Message",
+                "tool_mode": true,
+                "types": [
+                  "Message"
+                ],
+                "value": "__UNDEFINED__"
+              }
+            ],
+            "pinned": false,
+            "template": {
+              "_type": "Component",
+              "code": {
+                "advanced": true,
+                "dynamic": true,
+                "fileTypes": [],
+                "file_path": "",
+                "info": "",
+                "list": false,
+                "load_from_db": false,
+                "multiline": true,
+                "name": "code",
+                "password": false,
+                "placeholder": "",
+                "required": true,
+                "show": true,
+                "title_case": false,
+                "type": "code",
+                "value": "from langflow.base.io.text import TextComponent\nfrom langflow.io import MessageInput, Output\nfrom langflow.schema.message import Message\n\n\nclass TextOutputComponent(TextComponent):\n    display_name = \"Text Output\"\n    description = \"Display a text output in the Playground.\"\n    icon = \"type\"\n    name = \"TextOutput\"\n\n    inputs = [\n        MessageInput(\n            name=\"message\",\n            display_name=\"Message\",\n            info=\"The message to display as output.\",\n        ),\n    ]\n    outputs = [\n        Output(display_name=\"Echo\", name=\"text\", method=\"text_response\"),\n    ]\n\n    def text_response(self) -> Message:\n        self.status = self.message.text  # Display output inside node\n        return self.message\n"
+              },
+              "message": {
+                "_input_type": "MessageInput",
+                "advanced": false,
+                "display_name": "Message",
+                "dynamic": false,
+                "info": "The message to display as output.",
+                "input_types": [
+                  "Message"
+                ],
+                "list": false,
+                "list_add_label": "Add More",
+                "load_from_db": false,
+                "name": "message",
+                "placeholder": "",
+                "required": false,
+                "show": true,
+                "title_case": false,
+                "tool_mode": false,
+                "trace_as_input": true,
+                "trace_as_metadata": true,
+                "type": "str",
+                "value": ""
+              }
+            },
+            "tool_mode": false
+          },
+          "showNode": true,
+          "type": "TextOutput"
+        },
+        "dragging": false,
+        "id": "TextOutput-6XApy",
+        "measured": {
+          "height": 230,
+          "width": 320
+        },
+        "position": {
+          "x": 2078.6043054308575,
+          "y": 444.4071263573122
+        },
+        "selected": true,
+        "type": "genericNode"
+      }
+    ],
+    "viewport": {
+      "x": -636.049722051906,
+      "y": 97.1309109599573,
+      "zoom": 0.7271102274364613
+    }
+  },
+  "description": "A simple but powerful starter agent.",
+  "endpoint_name": null,
+  "folder_id": "bd59e02c-bba8-4f33-9114-adb9f6a434bf",
+  "fs_path": null,
+  "gradient": null,
+  "icon": null,
+  "icon_bg_color": null,
+  "id": "cbe8f33c-a6a6-419a-ae1b-19b7b9d809f4",
+  "is_component": false,
+  "locked": false,
+  "mcp_enabled": true,
+  "name": "pdf",
+  "tags": [
+    "assistants",
+    "agents"
+  ],
+  "updated_at": "2025-06-04T21:29:25+00:00",
+  "user_id": "706beac6-a045-4257-ba6a-b1eada7d70c6",
+  "webhook": false
+}
