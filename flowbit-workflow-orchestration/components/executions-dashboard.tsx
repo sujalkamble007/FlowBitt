@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, forwardRef, useImperativeHandle } from "react"
 import {
   Play,
   Clock,
@@ -40,7 +40,10 @@ interface ExecutionsDashboardProps {
   selectedWorkflowId?: string | null
 }
 
-export function ExecutionsDashboard({ selectedFolder = null, selectedWorkflowId = null }: ExecutionsDashboardProps) {
+export const ExecutionsDashboard = forwardRef(function ExecutionsDashboard(
+  { selectedFolder = null, selectedWorkflowId = null }: ExecutionsDashboardProps,
+  ref
+) {
   const [executions, setExecutions] = useState<Execution[]>([])
   const [loading, setLoading] = useState(true)
   const [refreshing, setRefreshing] = useState(false)
@@ -54,6 +57,10 @@ export function ExecutionsDashboard({ selectedFolder = null, selectedWorkflowId 
   const [isUsingMockData, setIsUsingMockData] = useState(false)
   const [triggerModalOpen, setTriggerModalOpen] = useState(false)
   const [triggerWorkflow, setTriggerWorkflow] = useState<{ id: string, engine: string } | null>(null)
+
+  useImperativeHandle(ref, () => ({
+    refreshExecutions: fetchExecutions
+  }))
 
   useEffect(() => {
     fetchExecutions()
@@ -487,4 +494,4 @@ export function ExecutionsDashboard({ selectedFolder = null, selectedWorkflowId 
       )}
     </div>
   )
-}
+})

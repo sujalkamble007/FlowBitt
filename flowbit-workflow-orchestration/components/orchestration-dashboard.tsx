@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import { SidebarProvider } from "@/components/ui/sidebar"
 import { AppSidebar } from "@/components/app-sidebar"
 import { DashboardHeader } from "@/components/dashboard-header"
@@ -35,6 +35,7 @@ export function OrchestrationDashboard() {
   const [flows, setFlows] = useState<any[]>([])
   const [selectedWorkflow, setSelectedWorkflow] = useState<any | null>(null)
   const [triggerModalOpen, setTriggerModalOpen] = useState(false)
+  const executionsDashboardRef = useRef<any>(null)
 
   // Fetch flows on mount
   useEffect(() => {
@@ -52,6 +53,11 @@ export function OrchestrationDashboard() {
     const found = flows.find((f) => f.uuid === selectedWorkflowId)
     setSelectedWorkflow(found || null)
   }, [selectedWorkflowId, flows])
+
+  const handleWorkflowTriggered = () => {
+    // Refresh executions after trigger
+    executionsDashboardRef.current?.refreshExecutions?.()
+  }
 
   return (
     <SidebarProvider defaultOpen={true}>
@@ -90,12 +96,13 @@ export function OrchestrationDashboard() {
                   onOpenChange={setTriggerModalOpen}
                   workflowId={selectedWorkflow.uuid}
                   engine="langflow"
+                  onTriggered={handleWorkflowTriggered}
                 />
               </div>
             ) : (
               <div className="mb-6 text-gray-500 text-center">Select a workflow to view details and trigger it.</div>
             )}
-            <ExecutionsDashboard selectedWorkflowId={selectedWorkflowId} />
+            <ExecutionsDashboard ref={executionsDashboardRef} selectedWorkflowId={selectedWorkflowId} />
           </main>
         </div>
       </div>
