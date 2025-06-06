@@ -15,6 +15,7 @@ import {
   SidebarMenuItem,
 } from "@/components/ui/sidebar"
 import { Button } from "@/components/ui/button"
+import { CreateWorkflowModal } from "./create-workflow-modal"
 
 // Update the props interface to accept folders
 interface AppSidebarProps {
@@ -33,6 +34,7 @@ interface Flow {
 export function AppSidebar({ selectedWorkflowId, onWorkflowSelect, onManageFolders }: AppSidebarProps) {
   const [flows, setFlows] = useState<Flow[]>([])
   const [loading, setLoading] = useState(true)
+  const [createModalOpen, setCreateModalOpen] = useState(false)
 
   useEffect(() => {
     async function fetchFlows() {
@@ -67,6 +69,9 @@ export function AppSidebar({ selectedWorkflowId, onWorkflowSelect, onManageFolde
         <SidebarGroup>
           <SidebarGroupLabel className="flex items-center justify-between">
             <span>Workflows</span>
+            <Button variant="outline" size="icon" onClick={() => setCreateModalOpen(true)} aria-label="Create Workflow">
+              +
+            </Button>
             {onManageFolders && (
               <Button variant="ghost" size="sm" onClick={onManageFolders} className="h-6 w-6 p-0">
                 <Settings className="w-3 h-3" />
@@ -108,6 +113,7 @@ export function AppSidebar({ selectedWorkflowId, onWorkflowSelect, onManageFolde
       <SidebarFooter className="border-t border-gray-200 p-4">
         <div className="text-xs text-gray-500">FlowBit Orchestration v1.1</div>
       </SidebarFooter>
+      <CreateWorkflowModal open={createModalOpen} onOpenChange={setCreateModalOpen} folders={[]} />
     </Sidebar>
   )
 }
