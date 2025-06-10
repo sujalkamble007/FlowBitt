@@ -271,7 +271,7 @@
           "x": 1907.2995394052498,
           "y": 403.2939825111664
         },
-        "selected": true,
+        "selected": false,
         "type": "genericNode"
       },
       {
@@ -402,7 +402,7 @@
     "assistants",
     "agents"
   ],
-  "updated_at": "2025-06-05T20:16:38+00:00",
+  "updated_at": "2025-06-06T16:49:43+00:00",
   "user_id": "bd8a4e20-b5d7-4fa2-ae7e-3d82914f2c7c",
   "webhook": false
 }

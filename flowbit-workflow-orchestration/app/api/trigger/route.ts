@@ -81,7 +81,8 @@ async function triggerLangflowWorkflow(flowId: string, inputPayload: any) {
   }
 
   try {
-    const url = `${langflowBaseUrl}/api/v1/run/${flowId}`
+    // Use the correct endpoint for LangFlow 1.4.2+
+    const url = `${langflowBaseUrl}/api/v1/build/${flowId}/flow`
     console.log(`Triggering Langflow workflow at: ${url}`)
 
     const response = await fetchWithTimeout(
